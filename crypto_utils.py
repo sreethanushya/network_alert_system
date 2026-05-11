@@ -9,14 +9,14 @@ def generate_key():
     print("\n🔑 Generated AES Key (Base64 Encoded):", base64.b64encode(key).decode('utf-8'))
     return key
 
-# AES Encryption Function (with debug prints)
+# AES Encryption Function 
 def encrypt_message(message, key):
-    print("\n📤 --- ENCRYPTION PROCESS STARTED ---")
+    print("\n --- ENCRYPTION PROCESS STARTED ---")
     print("Original Plaintext:", message)
 
     # Step 1: Padding
     padded_data = pad(message.encode('utf-8'), AES.block_size)
-    print("🧩 Padded Plaintext Bytes:", padded_data)
+    print(" Padded Plaintext Bytes:", padded_data)
 
     # Step 2: AES Encryption in CBC Mode
     cipher = AES.new(key, AES.MODE_CBC)
@@ -26,10 +26,10 @@ def encrypt_message(message, key):
     iv = base64.b64encode(cipher.iv).decode('utf-8')
     ct = base64.b64encode(ct_bytes).decode('utf-8')
 
-    print("🔒 Initialization Vector (Base64):", iv)
-    print("🔐 Ciphertext (Base64 Encoded):", ct)
+    print(" Initialization Vector (Base64):", iv)
+    print(" Ciphertext (Base64 Encoded):", ct)
 
-    print("📤 --- ENCRYPTION COMPLETE ---\n")
+    print(" --- ENCRYPTION COMPLETE ---\n")
     return iv + ":" + ct
 
 # AES Decryption Function (with debug prints)
@@ -42,8 +42,8 @@ def decrypt_message(encrypted_message, key):
     iv = base64.b64decode(iv_str)
     ct = base64.b64decode(ct_str)
 
-    print("🔒 Decoded IV (Raw Bytes):", iv)
-    print("🔐 Decoded Ciphertext (Raw Bytes):", ct)
+    print(" Decoded IV (Raw Bytes):", iv)
+    print(" Decoded Ciphertext (Raw Bytes):", ct)
 
     # Step 2: AES Decryption in CBC Mode
     cipher = AES.new(key, AES.MODE_CBC, iv)
@@ -53,7 +53,7 @@ def decrypt_message(encrypted_message, key):
 
     # Step 3: Unpad to get original plaintext
     unpadded = unpad(decrypted_data, AES.block_size)
-    print("✅ Final Decrypted Plaintext:", unpadded.decode('utf-8'))
+    print(" Final Decrypted Plaintext:", unpadded.decode('utf-8'))
 
     print("📥 --- DECRYPTION COMPLETE ---\n")
     return unpadded.decode('utf-8')
