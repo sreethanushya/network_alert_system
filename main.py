@@ -11,9 +11,7 @@ from detector import Detector, start_sniff
 INTERFACE = os.environ.get("CAPTURE_IFACE", None)
 ATTACHMENT_NAME = "alert_encrypted.json"
 
-# ================================================================
-# ALERT CALLBACK FUNCTION
-# ================================================================
+#calling the alert function
 def alert_callback_factory(conn, key):
     """
     Creates a callback function to handle detected alerts:
@@ -60,9 +58,7 @@ def alert_callback_factory(conn, key):
 
     return _callback
 
-# ================================================================
-# DECRYPTION DISPLAY FUNCTION
-# ================================================================
+#display for the decryption function
 def list_and_decrypt(conn, key, count=5):
     """
     Fetch and decrypt the last few alerts stored in the database.
@@ -82,9 +78,7 @@ def list_and_decrypt(conn, key, count=5):
         except Exception as e:
             print(f"[main] ❌ Decrypt failed for id {a['id']}:", e)
 
-# ================================================================
-# MAIN PROGRAM START
-# ================================================================
+#main programme
 if __name__ == "__main__":
     print("\n🚀 Starting Network Alert System with AES Encryption...")
 
@@ -105,7 +99,7 @@ if __name__ == "__main__":
         print(f"[main] ⚠️ Error initializing AES key: {e}")
         key = generate_and_print_key()
 
-    # Initialize database
+   #connect to the database
     conn = init_db()
 
     # Create detector and callback handler
