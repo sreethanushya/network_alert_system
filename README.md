@@ -4,8 +4,6 @@ A lightweight real-time network monitoring and alert system developed in Python 
 
 This project focuses on packet-level inspection, secure alert generation, and encryption, making it suitable for academic, learning, and small-scale security environments.
 
----
-
 ## Key Features
 - Real-time packet sniffing and analysis
 - Detection of suspicious activities:
@@ -15,8 +13,6 @@ This project focuses on packet-level inspection, secure alert generation, and en
 - Secure alert generation and notification
 - AES-based encryption for alert data
 - Modular and easy-to-extend codebase
-
----
 
 ## Security and Privacy Considerations
 
@@ -34,8 +30,6 @@ The following files are intentionally excluded using `.gitignore`:
 
 These files are generated locally at runtime and should not be committed to a public repository.
 
----
-
 ## Technologies Used
 - Python 3
 - Scapy
@@ -43,8 +37,6 @@ These files are generated locally at runtime and should not be committed to a pu
 - SMTP for email notifications
 - Colorama for console output
 - TCP/IP and ICMP networking concepts
-
----
 
 ## System Workflow
 1. Capture live network packets
@@ -54,7 +46,6 @@ These files are generated locally at runtime and should not be committed to a pu
 5. Trigger console and email alerts
 6. Log alerts securely on the local system
 
----
 
 ## How to Run the Project
 1. Install dependencies:
