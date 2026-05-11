@@ -85,7 +85,7 @@ if __name__ == "__main__":
                 key = f.read()
             print(" Loaded AES key from aes_key.bin")
         else:
-            print("🆕 No key found, generating a new AES key...")
+            print(" No key found, generating a new AES key...")
             key = generate_and_print_key()
             with open("aes_key.bin", "wb") as f:
                 f.write(key)
